@@ -47,9 +47,9 @@ export const zh: typeof en = {
 	seo: {
 		title: "X 视频下载器 — 下载 4K 推特视频",
 		description:
-			"免费下载 X（推特）视频、GIF 和图片，最高 4K 画质，无需登录，无需 API Key。",
+			"免费在线下载 X（推特）视频 MP4——高清 4K、无水印、无需登录，iPhone、安卓手机浏览器直接用，还能保存 GIF 动图和原图。",
 		keywords:
-			"X视频下载, 推特视频下载, X视频下载器, 推特视频下载器, 下载X视频, twitter视频下载, X GIF下载, 推特图片下载, x video downloader",
+			"X视频下载, 推特视频下载, 推特视频下载器, 在线免费下载推特视频, 推特视频保存, 推特视频转MP4, 推特无水印下载, 推特高清4K视频下载, 推特GIF下载, iPhone保存推特视频, x video downloader",
 	},
 	footer: {
 		tagline: "快速、免费、开源的 X（推特）媒体下载工具。",
@@ -108,6 +108,10 @@ export const zh: typeof en = {
 			{
 				q: "如何下载 X（推特）视频？",
 				a: "复制帖子链接，粘贴到搜索框并点击解析，选择画质后 MP4 直接保存到你的设备。",
+			},
+			{
+				q: "iPhone 或安卓手机怎么保存视频？",
+				a: "iPhone：点任意分辨率，Safari 会把 MP4 下载到“文件”；也可在预览里长按视频选“存储到照片”。安卓：直接下载到相册。任意手机浏览器均可使用，无需安装 App。",
 			},
 			{
 				q: "需要账号或 API Key 吗？",

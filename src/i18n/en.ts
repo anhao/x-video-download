@@ -47,9 +47,9 @@ export const en = {
 	seo: {
 		title: "Twitter Video Downloader — Download X Videos in 4K, Free, No Login",
 		description:
-			"Free tool to download videos, GIFs and photos from X (Twitter) posts. All qualities up to 4K, no login, no API key.",
+			"Free online tool to download X (Twitter) videos in MP4 — HD up to 4K, no watermark, no login. Paste a link: videos, GIFs and photos, iPhone & Android.",
 		keywords:
-			"twitter video downloader, x video downloader, download twitter videos, save x video, twitter video download 4k, download x gif, twitter photo downloader, x media downloader",
+			"twitter video downloader, x video downloader, download twitter video online free, save twitter video, twitter video saver, twitter to video download, twitter video to mp4, download twitter video no watermark, twitter video download hd 4k, download twitter gif, x media downloader",
 	},
 	footer: {
 		tagline: "Fast, free, open-source media downloader for X (Twitter).",
@@ -109,6 +109,10 @@ export const en = {
 			{
 				q: "How do I download an X (Twitter) video?",
 				a: "Copy the post link, paste it into the search box and press Parse. Choose a quality and the MP4 saves straight to your device.",
+			},
+			{
+				q: "How do I save a video on iPhone or Android?",
+				a: "On iPhone, tap a resolution — Safari downloads the MP4 to Files, or long-press the preview and choose “Save to Photos”. On Android it saves straight to your gallery. Any mobile browser works; no app needed.",
 			},
 			{
 				q: "Do I need an account or an API key?",

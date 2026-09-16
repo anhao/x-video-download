@@ -52,9 +52,9 @@ export const fr: typeof en = {
 		title:
 			"Téléchargeur de vidéos X — Téléchargez les vidéos X (Twitter) en 4K",
 		description:
-			"Outil gratuit pour télécharger vidéos, GIFs et photos de posts X (Twitter). Toutes les qualités jusqu’à 4K, sans connexion ni clé API.",
+			"Outil en ligne gratuit pour télécharger les vidéos X (Twitter) en MP4 — HD jusqu’en 4K, sans filigrane et sans connexion. Collez le lien : vidéos, GIFs et photos, sur iPhone et Android.",
 		keywords:
-			"téléchargeur vidéo x, télécharger video twitter, x video downloader, enregistrer vidéo x, télécharger gif twitter, télécharger photo x",
+			"téléchargeur vidéo x, télécharger video twitter en ligne gratuit, enregistrer vidéo twitter, vidéo twitter en mp4, sans filigrane, télécharger vidéo twitter hd 4k, télécharger gif twitter, x video downloader",
 	},
 	footer: {
 		tagline:
@@ -115,6 +115,10 @@ export const fr: typeof en = {
 			{
 				q: "Comment télécharger une vidéo X (Twitter) ?",
 				a: "Copiez le lien du post, collez-le dans la barre de recherche et appuyez sur Analyser. Choisissez une qualité et le MP4 s’enregistre directement sur votre appareil.",
+			},
+			{
+				q: "Comment enregistrer une vidéo sur iPhone ou Android ?",
+				a: "Sur iPhone, touchez une qualité : Safari télécharge le MP4 dans Fichiers, ou appuyez longuement sur l’aperçu et choisissez « Enregistrer la photo ». Sur Android, l’enregistrement va directement dans la galerie. Tout navigateur mobile fonctionne, sans app.",
 			},
 			{
 				q: "Faut-il un compte ou une clé API ?",

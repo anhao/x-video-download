@@ -51,9 +51,9 @@ export const pt: typeof en = {
 	seo: {
 		title: "Baixador de vídeos do X — Baixe vídeos do X (Twitter) em 4K",
 		description:
-			"Ferramenta gratuita para baixar vídeos, GIFs e fotos de posts do X (Twitter). Todas as qualidades até 4K, sem login e sem chave de API.",
+			"Ferramenta online grátis para baixar vídeos do X (Twitter) em MP4 — HD até 4K, sem marca d’água e sem login. Cole o link: vídeos, GIFs e fotos, no iPhone e no Android.",
 		keywords:
-			"baixar vídeos do x, baixar videos do twitter, x video downloader, download twitter video, baixar gif do x, baixar fotos do twitter",
+			"baixar vídeos do x, baixar video do twitter online grátis, salvar video do twitter, video do twitter em mp4, sem marca dágua, baixar video twitter hd 4k, baixar gif do x, x video downloader",
 	},
 	footer: {
 		tagline:
@@ -114,6 +114,10 @@ export const pt: typeof en = {
 			{
 				q: "Como baixo um vídeo do X (Twitter)?",
 				a: "Copie o link do post, cole na caixa de busca e toque em Analisar. Escolha uma qualidade e o MP4 é salvo direto no seu dispositivo.",
+			},
+			{
+				q: "Como salvo um vídeo no iPhone ou Android?",
+				a: "No iPhone, toque numa qualidade: o Safari baixa o MP4 em Arquivos, ou toque e segure na prévia e escolha “Salvar em Fotos”. No Android, salva direto na galeria. Funciona em qualquer navegador, sem app.",
 			},
 			{
 				q: "Preciso de conta ou chave de API?",

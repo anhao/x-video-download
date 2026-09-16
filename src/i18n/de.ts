@@ -52,9 +52,9 @@ export const de: typeof en = {
 		title:
 			"X (Twitter) Video-Downloader — Videos in 4K kostenlos herunterladen",
 		description:
-			"Kostenloses Tool zum Herunterladen von Videos, GIFs und Fotos aus X- (Twitter-) Beiträgen. Alle Qualitäten bis 4K, ohne Anmeldung, ohne API-Schlüssel.",
+			"Kostenloses Online-Tool zum Herunterladen von X- (Twitter-) Videos als MP4 — HD bis 4K, ohne Wasserzeichen, ohne Anmeldung. Link einfügen: Videos, GIFs & Fotos, iPhone und Android.",
 		keywords:
-			"x video downloader, twitter video herunterladen, x video download, video von twitter speichern, x gif herunterladen, twitter bild herunterladen",
+			"x video downloader, twitter video herunterladen online kostenlos, twitter video speichern, twitter video als mp4, ohne wasserzeichen, twitter video download hd 4k, twitter gif herunterladen, x video download",
 	},
 	footer: {
 		tagline:
@@ -115,6 +115,10 @@ export const de: typeof en = {
 			{
 				q: "Wie lade ich ein X- (Twitter-) Video herunter?",
 				a: "Post-Link kopieren, oben einfügen und auf Analysieren klicken. Qualität wählen — das MP4 wird direkt gespeichert.",
+			},
+			{
+				q: "Wie speichere ich ein Video auf iPhone oder Android?",
+				a: "Tippen Sie auf dem iPhone auf eine Qualität: Safari lädt das MP4 in Dateien, oder halten Sie die Vorschau gedrückt und wählen „Foto sichern“. Auf Android wird es direkt in die Galerie gespeichert. Funktioniert in jedem mobilen Browser, ohne App.",
 			},
 			{
 				q: "Brauche ich ein Konto oder API-Schlüssel?",

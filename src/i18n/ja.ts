@@ -52,9 +52,9 @@ export const ja: typeof en = {
 		title:
 			"X（Twitter）動画ダウンローダー — ツイート動画を4Kで無料ダウンロード",
 		description:
-			"X（Twitter）の動画・GIF・画像を無料でダウンロード。最大4K画質、ログイン不要、APIキー不要。",
+			"X（Twitter）の動画をMP4で無料オンライン保存 — 最大4Kの高画質、透かしなし、ログイン不要。リンクを貼るだけ。iPhone・Android対応、GIFや画像も保存できます。",
 		keywords:
-			"X動画ダウンローダー, ツイッター動画保存, X動画保存, Twitter動画ダウンロード, X GIF保存, ツイート動画ダウンロード, x video downloader",
+			"X動画ダウンローダー, ツイッター動画保存, Twitter動画ダウンロード, 無料オンライン保存, ツイッター動画MP4, 透かしなし保存, Twitter動画高清4K, ツイッターGIF保存, iPhone動画保存, x video downloader",
 	},
 	footer: {
 		tagline:
@@ -115,6 +115,10 @@ export const ja: typeof en = {
 			{
 				q: "X（Twitter）の動画をダウンロードするには？",
 				a: "投稿のリンクをコピーして検索ボックスに貼り付け、「解析」を押す。画質を選ぶとMP4がそのまま保存されます。",
+			},
+			{
+				q: "iPhoneやAndroidで動画を保存するには？",
+				a: "iPhone：画質をタップするとSafariがMP4を「ファイル」に保存します。プレビューで長押しして「写真に保存」も選べます。Android：そのままギャラリーに保存されます。アプリ不要、どのモバイルブラウザでも動きます。",
 			},
 			{
 				q: "アカウントやAPIキーは必要？",
