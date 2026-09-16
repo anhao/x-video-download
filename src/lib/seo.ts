@@ -1,0 +1,117 @@
+import { en } from "#/i18n/en";
+import { ja } from "#/i18n/ja";
+import { zh } from "#/i18n/zh";
+import type { Locale } from "#/lib/i18n";
+
+const DICTS = { en, zh, ja } as const;
+
+/**
+ * Absolute site origin for SEO URLs, injected at build time (VITE_SITE_URL).
+ * When unset, relative URLs are emitted — crawlers resolve them against the
+ * request host, so local dev needs no configuration.
+ */
+const SITE_URL = (import.meta.env.VITE_SITE_URL ?? "").replace(/\/+$/, "");
+
+const OG_LOCALE: Record<Locale, string> = {
+	en: "en_US",
+	zh: "zh_CN",
+	ja: "ja_JP",
+};
+
+const HREFLANG: Record<Locale, string> = {
+	en: "en",
+	zh: "zh-CN",
+	ja: "ja",
+};
+
+export function localePath(locale: Locale): string {
+	return locale === "en" ? "/" : `/${locale}`;
+}
+
+export const ALL_LOCALES: Locale[] = ["en", "zh", "ja"];
+
+/** Route head: title, description, OG/Twitter cards, canonical, hreflang. */
+export function seoMeta(locale: Locale) {
+	const dict = DICTS[locale].seo;
+	const url = `${SITE_URL}${localePath(locale)}`;
+	const image = `${SITE_URL}/og.png`;
+
+	return {
+		meta: [
+			{ title: dict.title },
+			{ name: "description", content: dict.description },
+
+			{ property: "og:type", content: "website" },
+			{ property: "og:site_name", content: "X Video Downloader" },
+			{ property: "og:title", content: dict.title },
+			{ property: "og:description", content: dict.description },
+			{ property: "og:url", content: url },
+			{ property: "og:image", content: image },
+			{ property: "og:image:width", content: "1200" },
+			{ property: "og:image:height", content: "630" },
+			{ property: "og:locale", content: OG_LOCALE[locale] },
+			...ALL_LOCALES.filter((l) => l !== locale).map((l) => ({
+				property: "og:locale:alternate",
+				content: OG_LOCALE[l],
+			})),
+
+			{ name: "twitter:card", content: "summary_large_image" },
+			{ name: "twitter:title", content: dict.title },
+			{ name: "twitter:description", content: dict.description },
+			{ name: "twitter:image", content: image },
+		],
+		links: [
+			{ rel: "canonical", href: url },
+			...ALL_LOCALES.map((l) => ({
+				rel: "alternate",
+				hreflang: HREFLANG[l],
+				href: `${SITE_URL}${localePath(l)}`,
+			})),
+			{ rel: "alternate", hreflang: "x-default", href: SITE_URL || "/" },
+		],
+	};
+}
+
+/** WebApplication structured data, injected as JSON-LD in the page shell. */
+export function jsonLd(locale: Locale): string {
+	const dict = DICTS[locale].seo;
+	return JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "WebApplication",
+		name: "X Video Downloader",
+		description: dict.description,
+		...(SITE_URL ? { url: SITE_URL } : {}),
+		applicationCategory: "MultimediaApplication",
+		operatingSystem: "Web",
+		browserRequirements: "Requires JavaScript",
+		inLanguage: HREFLANG[locale],
+		offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+	});
+}
+
+export function sitemapXml(origin: string): string {
+	const entries = ALL_LOCALES.map((l) => {
+		const alternates = [
+			...ALL_LOCALES.map(
+				(alt) =>
+					`    <xhtml:link rel="alternate" hreflang="${HREFLANG[alt]}" href="${origin}${localePath(alt)}"/>`,
+			),
+			`    <xhtml:link rel="alternate" hreflang="x-default" href="${origin}/"/>`,
+		].join("\n");
+		return `  <url>\n    <loc>${origin}${localePath(l)}</loc>\n${alternates}\n    <changefreq>weekly</changefreq>\n  </url>`;
+	}).join("\n");
+
+	return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${entries}
+</urlset>
+`;
+}
+
+export function robotsTxt(origin: string): string {
+	return `User-agent: *
+Allow: /
+
+Sitemap: ${origin}/sitemap.xml
+`;
+}

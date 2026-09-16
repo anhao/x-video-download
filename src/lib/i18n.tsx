@@ -1,55 +1,20 @@
-import {
-	createContext,
-	useCallback,
-	useContext,
-	useEffect,
-	useState,
-} from "react";
+import { createContext, useCallback, useContext, useEffect } from "react";
 import { en } from "#/i18n/en";
 import { ja } from "#/i18n/ja";
 import { zh } from "#/i18n/zh";
 
 export type Locale = "en" | "zh" | "ja";
 
-export const LOCALES: { code: Locale; label: string }[] = [
-	{ code: "en", label: "English" },
-	{ code: "zh", label: "中文" },
-	{ code: "ja", label: "日本語" },
+export const LOCALES: { code: Locale; label: string; path: string }[] = [
+	{ code: "en", label: "English", path: "/" },
+	{ code: "zh", label: "中文", path: "/zh" },
+	{ code: "ja", label: "日本語", path: "/ja" },
 ];
 
-type Dict = typeof en;
-const dicts: Record<Locale, Dict> = { en, zh, ja };
-
-const STORAGE_KEY = "xvd-locale";
-
-function detectLocale(): Locale {
-	try {
-		const saved = localStorage.getItem(STORAGE_KEY);
-		if (saved === "zh" || saved === "ja" || saved === "en") return saved;
-	} catch {
-		// SSR or storage blocked
-	}
-	const nav =
-		typeof navigator !== "undefined" ? navigator.language.toLowerCase() : "";
-	if (nav.startsWith("zh")) return "zh";
-	if (nav.startsWith("ja")) return "ja";
-	return "en";
-}
-
-type I18nContextValue = {
-	locale: Locale;
-	setLocale: (locale: Locale) => void;
-	t: (key: string) => string;
-};
-
-const I18nContext = createContext<I18nContextValue>({
-	locale: "en",
-	setLocale: () => {},
-	t: (key) => key,
-});
+const dicts = { en, zh, ja };
 
 /** Nested lookup with English fallback so a missing key never renders raw. */
-function lookup(dict: unknown, base: Dict, key: string): string {
+function lookup(dict: unknown, base: typeof en, key: string): string {
 	const resolve = (source: unknown): unknown =>
 		key.split(".").reduce<unknown>((acc, part) => {
 			if (
@@ -65,23 +30,24 @@ function lookup(dict: unknown, base: Dict, key: string): string {
 	return typeof value === "string" ? value : key;
 }
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
-	const [locale, setLocaleState] = useState<Locale>("en");
+type I18nContextValue = {
+	/** Source of truth is the URL path (/, /zh, /ja) — good for SEO. */
+	locale: Locale;
+	t: (key: string) => string;
+};
 
-	// Detect after mount to avoid SSR hydration mismatch.
-	useEffect(() => {
-		setLocaleState(detectLocale());
-	}, []);
+const I18nContext = createContext<I18nContextValue>({
+	locale: "en",
+	t: (key) => key,
+});
 
-	const setLocale = useCallback((next: Locale) => {
-		setLocaleState(next);
-		try {
-			localStorage.setItem(STORAGE_KEY, next);
-		} catch {
-			// storage blocked — keep in-memory only
-		}
-	}, []);
-
+export function I18nProvider({
+	locale,
+	children,
+}: {
+	locale: Locale;
+	children: React.ReactNode;
+}) {
 	const t = useCallback(
 		(key: string) => lookup(dicts[locale], en, key),
 		[locale],
@@ -89,10 +55,15 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
 	useEffect(() => {
 		document.documentElement.lang = locale === "zh" ? "zh-CN" : locale;
+		try {
+			localStorage.setItem("xvd-locale", locale);
+		} catch {
+			// storage blocked — path remains the source of truth anyway
+		}
 	}, [locale]);
 
 	return (
-		<I18nContext.Provider value={{ locale, setLocale, t }}>
+		<I18nContext.Provider value={{ locale, t }}>
 			{children}
 		</I18nContext.Provider>
 	);

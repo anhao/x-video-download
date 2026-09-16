@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import HomePage from "#/components/HomePage";
 import { seoMeta } from "#/lib/seo";
 
-export const Route = createFileRoute("/")({
-	head: () => seoMeta("en"),
-	component: () => <HomePage locale="en" />,
+export const Route = createFileRoute("/ja/")({
+	head: () => seoMeta("ja"),
+	component: () => <HomePage locale="ja" />,
 });

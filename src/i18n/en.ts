@@ -43,6 +43,11 @@ export const en = {
 		clear: "Clear",
 		empty: "No history yet.",
 	},
+	seo: {
+		title: "X Video Downloader — Download X (Twitter) Videos in 4K",
+		description:
+			"Free tool to download videos, GIFs and photos from X (Twitter) posts. All qualities up to 4K, no login, no API key.",
+	},
 	footer: {
 		disclaimer:
 			"For personal backup and learning only. Respect creators’ copyright — do not redistribute without permission.",

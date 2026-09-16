@@ -43,6 +43,11 @@ export const zh: typeof en = {
 		clear: "清空",
 		empty: "暂无记录。",
 	},
+	seo: {
+		title: "X 视频下载器 — 下载 4K 推特视频",
+		description:
+			"免费下载 X（推特）视频、GIF 和图片，最高 4K 画质，无需登录，无需 API Key。",
+	},
 	footer: {
 		disclaimer: "仅供个人备份与学习使用，请尊重创作者版权，勿未经授权传播。",
 		license: "基于 MIT 协议开源",

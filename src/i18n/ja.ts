@@ -47,6 +47,11 @@ export const ja: typeof en = {
 		clear: "クリア",
 		empty: "履歴はありません。",
 	},
+	seo: {
+		title: "X 動画ダウンローダー — 4Kのツイート動画をダウンロード",
+		description:
+			"X（Twitter）の動画・GIF・画像を無料でダウンロード。最大4K画質、ログイン不要、APIキー不要。",
+	},
 	footer: {
 		disclaimer:
 			"個人のバックアップと学習のみにご利用ください。著作権を尊重し、無断転載しないでください。",

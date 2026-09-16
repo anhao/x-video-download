@@ -55,19 +55,31 @@ Your app is live at `https://x-video-download.<your-subdomain>.workers.dev`. Fre
 
 Optional CI: add repo secrets `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` and `.github/workflows/deploy.yml` will deploy on push to `main`.
 
+## SEO & i18n paths
+
+- `/` is English (default), `/zh` is 简体中文, `/ja` is 日本語 — each is fully server-rendered with its own `<html lang>`, translated `title`/`description`, Open Graph / Twitter card, and `canonical` + `hreflang` (en / zh-CN / ja / x-default)
+- `sitemap.xml` and `robots.txt` are generated at the edge and adapt to your deployed domain automatically
+- `WebApplication` JSON-LD structured data is embedded in every page
+- Set `VITE_SITE_URL` (see `.env.example`) to emit absolute canonical / `og:image` URLs — recommended for production, and supported as a CI secret in the deploy workflow
+
 ## Project layout
 
 ```
 src/
 ├── lib/
 │   ├── twitter.ts      # syndication client, token scheme, media parsing, size preflight
-│   └── i18n.tsx        # locale provider (localStorage + navigator detection)
+│   ├── i18n.tsx        # locale provider (path-driven: /, /zh, /ja)
+│   └── seo.ts          # head meta, hreflang, JSON-LD, sitemap, robots
 ├── i18n/               # en / zh / ja dictionaries
+├── components/HomePage.tsx  # shared UI: search, skeleton, result cards, preview, history
 └── routes/
     ├── api/parse.ts    # GET /api/parse?url=
     ├── api/download.ts # GET /api/download (stream proxy, attachment / Range)
-    ├── index.tsx       # UI: search, skeleton, result cards, preview, history
-    └── __root.tsx      # html shell + I18nProvider
+    ├── index.tsx       # /        (English)
+    ├── zh/index.tsx    # /zh      (简体中文)
+    ├── ja/index.tsx    # /ja      (日本語)
+    ├── sitemap[.]xml.ts / robots[.]txt.ts  # edge-generated
+    └── __root.tsx      # html shell, dynamic lang, favicon
 ```
 
 ## Limitations

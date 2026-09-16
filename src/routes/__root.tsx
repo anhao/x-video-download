@@ -1,5 +1,9 @@
-import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-import { I18nProvider } from "#/lib/i18n";
+import {
+	createRootRoute,
+	HeadContent,
+	Scripts,
+	useRouterState,
+} from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 
@@ -16,11 +20,6 @@ export const Route = createRootRoute({
 				content: "#000000",
 			},
 			{
-				name: "description",
-				content:
-					"Download videos, GIFs and photos from X (Twitter) posts — up to 4K, no login required.",
-			},
-			{
 				title: "X Video Downloader",
 			},
 		],
@@ -29,19 +28,31 @@ export const Route = createRootRoute({
 				rel: "stylesheet",
 				href: appCss,
 			},
+			{
+				rel: "icon",
+				type: "image/svg+xml",
+				href: "/favicon.svg",
+			},
 		],
 	}),
 	shellComponent: RootDocument,
 });
 
+function langFromPathname(pathname: string): string {
+	if (pathname.startsWith("/zh")) return "zh-CN";
+	if (pathname.startsWith("/ja")) return "ja";
+	return "en";
+}
+
 function RootDocument({ children }: { children: React.ReactNode }) {
+	const pathname = useRouterState({ select: (s) => s.location.pathname });
 	return (
-		<html lang="en">
+		<html lang={langFromPathname(pathname)}>
 			<head>
 				<HeadContent />
 			</head>
 			<body>
-				<I18nProvider>{children}</I18nProvider>
+				{children}
 				<Scripts />
 			</body>
 		</html>

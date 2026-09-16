@@ -11,8 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ApiDownloadRouteImport } from './routes/api/download'
 import { Route as ApiParseRouteImport } from './routes/api/parse'
+import { Route as JaIndexRouteImport } from './routes/ja/index'
+import { Route as ZhIndexRouteImport } from './routes/zh/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,6 +26,16 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiDownloadRoute = ApiDownloadRouteImport.update({
@@ -34,39 +48,90 @@ const ApiParseRoute = ApiParseRouteImport.update({
   path: '/api/parse',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JaIndexRoute = JaIndexRouteImport.update({
+  id: '/ja/',
+  path: '/ja/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZhIndexRoute = ZhIndexRouteImport.update({
+  id: '/zh/',
+  path: '/zh/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/download': typeof ApiDownloadRoute
   '/api/parse': typeof ApiParseRoute
+  '/ja/': typeof JaIndexRoute
+  '/zh/': typeof ZhIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/download': typeof ApiDownloadRoute
   '/api/parse': typeof ApiParseRoute
+  '/ja': typeof JaIndexRoute
+  '/zh': typeof ZhIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/download': typeof ApiDownloadRoute
   '/api/parse': typeof ApiParseRoute
+  '/ja/': typeof JaIndexRoute
+  '/zh/': typeof ZhIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/api/download' | '/api/parse'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/api/download'
+    | '/api/parse'
+    | '/ja/'
+    | '/zh/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/api/download' | '/api/parse'
-  id: '__root__' | '/' | '/about' | '/api/download' | '/api/parse'
+  to:
+    | '/'
+    | '/about'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/api/download'
+    | '/api/parse'
+    | '/ja'
+    | '/zh'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/api/download'
+    | '/api/parse'
+    | '/ja/'
+    | '/zh/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiDownloadRoute: typeof ApiDownloadRoute
   ApiParseRoute: typeof ApiParseRoute
+  JaIndexRoute: typeof JaIndexRoute
+  ZhIndexRoute: typeof ZhIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -85,6 +150,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/download': {
       id: '/api/download'
       path: '/api/download'
@@ -99,14 +178,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiParseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ja/': {
+      id: '/ja/'
+      path: '/ja'
+      fullPath: '/ja/'
+      preLoaderRoute: typeof JaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zh/': {
+      id: '/zh/'
+      path: '/zh'
+      fullPath: '/zh/'
+      preLoaderRoute: typeof ZhIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiDownloadRoute: ApiDownloadRoute,
   ApiParseRoute: ApiParseRoute,
+  JaIndexRoute: JaIndexRoute,
+  ZhIndexRoute: ZhIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

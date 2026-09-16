@@ -23,7 +23,11 @@ jobs:
 
       - name: Build & deploy
         uses: cloudflare/wrangler-action@v3
+        env:
+          # Optional secret — absolute origin for canonical/og URLs
+          VITE_SITE_URL: ${{ secrets.VITE_SITE_URL }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
+          preCommands: npm run build
+          command: deploy --config dist/server/wrangler.json
