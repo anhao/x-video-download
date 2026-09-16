@@ -4,7 +4,7 @@ Download videos, GIFs and photos from X (Twitter) posts — up to 4K, no login, 
 
 Built with [TanStack Start](https://tanstack.com/start) and deployed on [Cloudflare Workers](https://workers.cloudflare.com/). UI available in English, 简体中文 and 日本語.
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/your-username/x-video-download)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/anhao/x-video-download)
 
 ## Features
 

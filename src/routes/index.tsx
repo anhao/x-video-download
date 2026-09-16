@@ -6,7 +6,7 @@ import type { ErrorCode, MediaItem, ParseResult } from "#/lib/twitter";
 export const Route = createFileRoute("/")({ component: HomePage });
 
 /** Update after publishing to your own repository. */
-const GITHUB_URL = "https://github.com/your-username/x-video-download";
+const GITHUB_URL = "https://github.com/anhao/x-video-download";
 
 const LINK_RE =
 	/https?:\/\/(?:x|twitter)\.com\/[A-Za-z0-9_]{1,20}\/status(?:es)?\/\d{4,25}\S*|https?:\/\/t\.co\/[A-Za-z0-9]+/gi;
