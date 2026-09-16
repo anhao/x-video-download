@@ -51,6 +51,8 @@ export const ru: typeof en = {
 		title: "Загрузчик видео из X — скачивайте видео из X (Twitter) в 4K",
 		description:
 			"Бесплатный инструмент для скачивания видео, GIF и фото из постов X (Twitter). Все качества до 4K, без входа и без API-ключа.",
+		keywords:
+			"скачать видео из x, скачать видео из твиттера, x video downloader, скачать видео twitter, сохранить видео x, скачать gif twitter",
 	},
 	footer: {
 		tagline:

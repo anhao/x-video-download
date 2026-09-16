@@ -49,9 +49,12 @@ export const de: typeof en = {
 		empty: "Noch kein Verlauf.",
 	},
 	seo: {
-		title: "X Video-Downloader — X- (Twitter-) Videos in 4K herunterladen",
+		title:
+			"X (Twitter) Video-Downloader — Videos in 4K kostenlos herunterladen",
 		description:
 			"Kostenloses Tool zum Herunterladen von Videos, GIFs und Fotos aus X- (Twitter-) Beiträgen. Alle Qualitäten bis 4K, ohne Anmeldung, ohne API-Schlüssel.",
+		keywords:
+			"x video downloader, twitter video herunterladen, x video download, video von twitter speichern, x gif herunterladen, twitter bild herunterladen",
 	},
 	footer: {
 		tagline:

@@ -48,6 +48,8 @@ export const zh: typeof en = {
 		title: "X 视频下载器 — 下载 4K 推特视频",
 		description:
 			"免费下载 X（推特）视频、GIF 和图片，最高 4K 画质，无需登录，无需 API Key。",
+		keywords:
+			"X视频下载, 推特视频下载, X视频下载器, 推特视频下载器, 下载X视频, twitter视频下载, X GIF下载, 推特图片下载, x video downloader",
 	},
 	footer: {
 		tagline: "快速、免费、开源的 X（推特）媒体下载工具。",

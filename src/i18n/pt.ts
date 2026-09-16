@@ -52,6 +52,8 @@ export const pt: typeof en = {
 		title: "Baixador de vídeos do X — Baixe vídeos do X (Twitter) em 4K",
 		description:
 			"Ferramenta gratuita para baixar vídeos, GIFs e fotos de posts do X (Twitter). Todas as qualidades até 4K, sem login e sem chave de API.",
+		keywords:
+			"baixar vídeos do x, baixar videos do twitter, x video downloader, download twitter video, baixar gif do x, baixar fotos do twitter",
 	},
 	footer: {
 		tagline:

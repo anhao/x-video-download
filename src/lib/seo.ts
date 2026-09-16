@@ -73,6 +73,7 @@ export function seoMeta(locale: Locale) {
 		meta: [
 			{ title: dict.title },
 			{ name: "description", content: dict.description },
+			{ name: "keywords", content: dict.keywords },
 
 			{ property: "og:type", content: "website" },
 			{ property: "og:site_name", content: "X Video Downloader" },

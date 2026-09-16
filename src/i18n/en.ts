@@ -48,6 +48,8 @@ export const en = {
 		title: "Twitter Video Downloader — Download X Videos in 4K, Free, No Login",
 		description:
 			"Free tool to download videos, GIFs and photos from X (Twitter) posts. All qualities up to 4K, no login, no API key.",
+		keywords:
+			"twitter video downloader, x video downloader, download twitter videos, save x video, twitter video download 4k, download x gif, twitter photo downloader, x media downloader",
 	},
 	footer: {
 		tagline: "Fast, free, open-source media downloader for X (Twitter).",

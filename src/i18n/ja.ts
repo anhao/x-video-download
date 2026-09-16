@@ -50,9 +50,11 @@ export const ja: typeof en = {
 	},
 	seo: {
 		title:
-			"X 動画ダウンローダー — ツイート動画を4Kで無料ダウンロード・ログイン不要",
+			"X（Twitter）動画ダウンローダー — ツイート動画を4Kで無料ダウンロード",
 		description:
 			"X（Twitter）の動画・GIF・画像を無料でダウンロード。最大4K画質、ログイン不要、APIキー不要。",
+		keywords:
+			"X動画ダウンローダー, ツイッター動画保存, X動画保存, Twitter動画ダウンロード, X GIF保存, ツイート動画ダウンロード, x video downloader",
 	},
 	footer: {
 		tagline:
