@@ -6,6 +6,7 @@ export const es: typeof en = {
 	},
 	hero: {
 		title: "Descargador de vídeos de X",
+		h1: "Descargador de vídeos de X (Twitter)",
 		subtitle:
 			"Pega el enlace de un tweet para descargar vídeos, GIFs y fotos — hasta 4K, sin iniciar sesión.",
 	},
@@ -52,7 +53,7 @@ export const es: typeof en = {
 	seo: {
 		title: "Descargador de vídeos de X — Descarga vídeos de X (Twitter) en 4K",
 		description:
-			"Herramienta gratuita para descargar vídeos, GIFs y fotos de publicaciones de X (Twitter). Todas las calidades hasta 4K, sin inicio de sesión y sin clave de API.",
+			"Descarga gratis vídeos, GIFs y fotos de X (Twitter). Todas las calidades hasta 4K, sin inicio de sesión y sin clave de API.",
 	},
 	footer: {
 		tagline:

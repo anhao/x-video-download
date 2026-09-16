@@ -33,6 +33,10 @@ export const Route = createRootRoute({
 				type: "image/svg+xml",
 				href: "/favicon.svg",
 			},
+			{
+				rel: "apple-touch-icon",
+				href: "/apple-touch-icon.png",
+			},
 		],
 	}),
 	shellComponent: RootDocument,
@@ -42,6 +46,7 @@ function langFromPathname(pathname: string): string {
 	const m = pathname.match(/^\/(zh|ja|es|pt|ko|fr|de|ru)/);
 	if (!m) return "en";
 	if (m[1] === "zh") return "zh-CN";
+	if (m[1] === "pt") return "pt-BR";
 	return m[1];
 }
 

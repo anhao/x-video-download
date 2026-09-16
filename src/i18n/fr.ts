@@ -6,6 +6,7 @@ export const fr: typeof en = {
 	},
 	hero: {
 		title: "Téléchargeur de vidéos X",
+		h1: "Téléchargeur de vidéos X (Twitter)",
 		subtitle:
 			"Collez le lien d’un tweet pour télécharger vidéos, GIFs et photos — jusqu’en 4K, sans connexion.",
 	},

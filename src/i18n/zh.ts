@@ -6,6 +6,7 @@ export const zh: typeof en = {
 	},
 	hero: {
 		title: "X 视频下载器",
+		h1: "X（推特）视频下载器",
 		subtitle: "粘贴推文链接，下载视频、GIF 和图片——最高 4K 画质，无需登录。",
 	},
 	input: {

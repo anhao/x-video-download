@@ -60,7 +60,7 @@ Optional CI: add repo secrets `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` a
 - `/` is English (default), `/zh` is 简体中文, `/ja` is 日本語 — each is fully server-rendered with its own `<html lang>`, translated `title`/`description`, Open Graph / Twitter card, and `canonical` + `hreflang` (en / zh-CN / ja / x-default)
 - `sitemap.xml` and `robots.txt` are generated at the edge and adapt to your deployed domain automatically
 - `WebApplication` JSON-LD structured data is embedded in every page
-- Set `VITE_SITE_URL` (see `.env.example`) to emit absolute canonical / `og:image` URLs — recommended for production, and supported as a CI secret in the deploy workflow
+- **Set `VITE_SITE_URL` before deploying** (see `.env.example`) — it emits absolute canonical / hreflang / `og:image` URLs and pins the sitemap to one canonical host. Without it, builds print a warning and URLs stay relative (hreflang is then ignored by Google and share cards lose their image). Pass it as a CI secret in the deploy workflow
 
 ## Project layout
 

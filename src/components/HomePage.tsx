@@ -239,7 +239,7 @@ function HomePageBody() {
 			<main>
 				<section className="pt-10 pb-8 text-center sm:pt-16">
 					<h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-						{t("hero.title")}
+						{t("hero.h1")}
 					</h1>
 					<p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-neutral-400">
 						{t("hero.subtitle")}

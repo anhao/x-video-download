@@ -18,6 +18,11 @@ const DICTS = { en, zh, ja, es, pt, ko, fr, de, ru } as const;
  */
 const SITE_URL = (import.meta.env.VITE_SITE_URL ?? "").replace(/\/+$/, "");
 
+/** Prefer the configured canonical origin; fall back to the request host. */
+export function siteOrigin(fallback: string): string {
+	return SITE_URL || fallback;
+}
+
 const OG_LOCALE: Record<Locale, string> = {
 	en: "en_US",
 	zh: "zh_CN",
@@ -77,16 +82,15 @@ export function seoMeta(locale: Locale) {
 			{ property: "og:image", content: image },
 			{ property: "og:image:width", content: "1200" },
 			{ property: "og:image:height", content: "630" },
+			{ property: "og:image:type", content: "image/png" },
 			{ property: "og:locale", content: OG_LOCALE[locale] },
-			...ALL_LOCALES.filter((l) => l !== locale).map((l) => ({
-				property: "og:locale:alternate",
-				content: OG_LOCALE[l],
-			})),
 
 			{ name: "twitter:card", content: "summary_large_image" },
+			{ name: "twitter:site", content: "@anhao_ai" },
 			{ name: "twitter:title", content: dict.title },
 			{ name: "twitter:description", content: dict.description },
 			{ name: "twitter:image", content: image },
+			{ name: "twitter:image:alt", content: dict.title },
 		],
 		links: [
 			{ rel: "canonical", href: url },
@@ -108,11 +112,18 @@ export function jsonLd(locale: Locale): string {
 		"@type": "WebApplication",
 		name: "X Video Downloader",
 		description: dict.description,
-		...(SITE_URL ? { url: SITE_URL } : {}),
+		...(SITE_URL ? { url: SITE_URL, image: `${SITE_URL}/og.png` } : {}),
 		applicationCategory: "MultimediaApplication",
 		operatingSystem: "Web",
 		browserRequirements: "Requires JavaScript",
 		inLanguage: HREFLANG[locale],
+		isAccessibleForFree: true,
+		featureList: DICTS[locale].sections.features.map((f) => f.title),
+		author: {
+			"@type": "Person",
+			name: "anhao",
+			url: "https://github.com/anhao",
+		},
 		offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
 	});
 }
@@ -131,6 +142,7 @@ export function faqJsonLd(locale: Locale): string {
 }
 
 export function sitemapXml(origin: string): string {
+	const lastmod = (import.meta.env.VITE_BUILD_DATE ?? "").slice(0, 10);
 	const entries = ALL_LOCALES.map((l) => {
 		const alternates = [
 			...ALL_LOCALES.map(
@@ -139,7 +151,7 @@ export function sitemapXml(origin: string): string {
 			),
 			`    <xhtml:link rel="alternate" hreflang="x-default" href="${origin}/"/>`,
 		].join("\n");
-		return `  <url>\n    <loc>${origin}${localePath(l)}</loc>\n${alternates}\n    <changefreq>weekly</changefreq>\n  </url>`;
+		return `  <url>\n    <loc>${origin}${localePath(l)}</loc>\n${alternates}\n    ${lastmod ? `<lastmod>${lastmod}</lastmod>\n    ` : ""}  </url>`;
 	}).join("\n");
 
 	return `<?xml version="1.0" encoding="UTF-8"?>
@@ -151,7 +163,7 @@ ${entries}
 
 export function robotsTxt(origin: string): string {
 	return `User-agent: *
-Allow: /
+Disallow: /api/
 
 Sitemap: ${origin}/sitemap.xml
 `;

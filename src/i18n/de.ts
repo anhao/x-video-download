@@ -6,6 +6,7 @@ export const de: typeof en = {
 	},
 	hero: {
 		title: "X Video-Downloader",
+		h1: "X (Twitter) Video-Downloader",
 		subtitle:
 			"Tweet-Link einfügen und Videos, GIFs und Fotos herunterladen — bis 4K, ohne Anmeldung.",
 	},

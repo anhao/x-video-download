@@ -6,6 +6,7 @@ export const ko: typeof en = {
 	},
 	hero: {
 		title: "X 영상 다운로더",
+		h1: "X(트위터) 영상 다운로더",
 		subtitle:
 			"트윗 링크를 붙여넣어 영상, GIF, 사진을 다운로드하세요 — 최대 4K, 로그인 불필요.",
 	},
@@ -47,7 +48,7 @@ export const ko: typeof en = {
 		empty: "기록이 없습니다.",
 	},
 	seo: {
-		title: "X 영상 다운로더 — X(트위터) 영상을 4K로 다운로드",
+		title: "X 영상 다운로더 — 트위터 영상 4K 무료 다운로드, 로그인 불필요",
 		description:
 			"X(트위터) 게시물의 영상, GIF, 사진을 무료로 다운로드하는 도구. 최대 4K 화질, 로그인 및 API 키 불필요.",
 	},

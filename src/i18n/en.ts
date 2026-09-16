@@ -4,6 +4,7 @@ export const en = {
 	},
 	hero: {
 		title: "X Video Downloader",
+		h1: "X (Twitter) Video Downloader",
 		subtitle:
 			"Paste a tweet link to download videos, GIFs and photos — up to 4K, no login required.",
 	},
@@ -44,7 +45,7 @@ export const en = {
 		empty: "No history yet.",
 	},
 	seo: {
-		title: "X Video Downloader — Download X (Twitter) Videos in 4K",
+		title: "Twitter Video Downloader — Download X Videos in 4K, Free, No Login",
 		description:
 			"Free tool to download videos, GIFs and photos from X (Twitter) posts. All qualities up to 4K, no login, no API key.",
 	},

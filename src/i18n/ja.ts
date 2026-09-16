@@ -6,6 +6,7 @@ export const ja: typeof en = {
 	},
 	hero: {
 		title: "X 動画ダウンローダー",
+		h1: "X（Twitter）動画ダウンローダー",
 		subtitle:
 			"ツイートのリンクを貼り付けて、動画・GIF・画像をダウンロード — 最大 4K、ログイン不要。",
 	},
@@ -48,7 +49,8 @@ export const ja: typeof en = {
 		empty: "履歴はありません。",
 	},
 	seo: {
-		title: "X 動画ダウンローダー — 4Kのツイート動画をダウンロード",
+		title:
+			"X 動画ダウンローダー — ツイート動画を4Kで無料ダウンロード・ログイン不要",
 		description:
 			"X（Twitter）の動画・GIF・画像を無料でダウンロード。最大4K画質、ログイン不要、APIキー不要。",
 	},
