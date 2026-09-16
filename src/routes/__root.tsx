@@ -39,9 +39,10 @@ export const Route = createRootRoute({
 });
 
 function langFromPathname(pathname: string): string {
-	if (pathname.startsWith("/zh")) return "zh-CN";
-	if (pathname.startsWith("/ja")) return "ja";
-	return "en";
+	const m = pathname.match(/^\/(zh|ja|es|pt|ko|fr|de|ru)/);
+	if (!m) return "en";
+	if (m[1] === "zh") return "zh-CN";
+	return m[1];
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {

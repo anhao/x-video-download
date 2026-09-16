@@ -1,9 +1,15 @@
+import { de } from "#/i18n/de";
 import { en } from "#/i18n/en";
+import { es } from "#/i18n/es";
+import { fr } from "#/i18n/fr";
 import { ja } from "#/i18n/ja";
+import { ko } from "#/i18n/ko";
+import { pt } from "#/i18n/pt";
+import { ru } from "#/i18n/ru";
 import { zh } from "#/i18n/zh";
 import type { Locale } from "#/lib/i18n";
 
-const DICTS = { en, zh, ja } as const;
+const DICTS = { en, zh, ja, es, pt, ko, fr, de, ru } as const;
 
 /**
  * Absolute site origin for SEO URLs, injected at build time (VITE_SITE_URL).
@@ -16,19 +22,41 @@ const OG_LOCALE: Record<Locale, string> = {
 	en: "en_US",
 	zh: "zh_CN",
 	ja: "ja_JP",
+	es: "es_ES",
+	pt: "pt_BR",
+	ko: "ko_KR",
+	fr: "fr_FR",
+	de: "de_DE",
+	ru: "ru_RU",
 };
 
 const HREFLANG: Record<Locale, string> = {
 	en: "en",
 	zh: "zh-CN",
 	ja: "ja",
+	es: "es",
+	pt: "pt-BR",
+	ko: "ko",
+	fr: "fr",
+	de: "de",
+	ru: "ru",
 };
 
 export function localePath(locale: Locale): string {
 	return locale === "en" ? "/" : `/${locale}`;
 }
 
-export const ALL_LOCALES: Locale[] = ["en", "zh", "ja"];
+export const ALL_LOCALES: Locale[] = [
+	"en",
+	"zh",
+	"ja",
+	"es",
+	"pt",
+	"ko",
+	"fr",
+	"de",
+	"ru",
+];
 
 /** Route head: title, description, OG/Twitter cards, canonical, hreflang. */
 export function seoMeta(locale: Locale) {

@@ -10,22 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ApiDownloadRouteImport } from './routes/api/download'
 import { Route as ApiParseRouteImport } from './routes/api/parse'
+import { Route as DeIndexRouteImport } from './routes/de/index'
+import { Route as EsIndexRouteImport } from './routes/es/index'
+import { Route as FrIndexRouteImport } from './routes/fr/index'
 import { Route as JaIndexRouteImport } from './routes/ja/index'
+import { Route as KoIndexRouteImport } from './routes/ko/index'
+import { Route as PtIndexRouteImport } from './routes/pt/index'
+import { Route as RuIndexRouteImport } from './routes/ru/index'
 import { Route as ZhIndexRouteImport } from './routes/zh/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
@@ -48,9 +48,39 @@ const ApiParseRoute = ApiParseRouteImport.update({
   path: '/api/parse',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DeIndexRoute = DeIndexRouteImport.update({
+  id: '/de/',
+  path: '/de/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EsIndexRoute = EsIndexRouteImport.update({
+  id: '/es/',
+  path: '/es/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrIndexRoute = FrIndexRouteImport.update({
+  id: '/fr/',
+  path: '/fr/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JaIndexRoute = JaIndexRouteImport.update({
   id: '/ja/',
   path: '/ja/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KoIndexRoute = KoIndexRouteImport.update({
+  id: '/ko/',
+  path: '/ko/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtIndexRoute = PtIndexRouteImport.update({
+  id: '/pt/',
+  path: '/pt/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RuIndexRoute = RuIndexRouteImport.update({
+  id: '/ru/',
+  path: '/ru/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ZhIndexRoute = ZhIndexRouteImport.update({
@@ -61,76 +91,111 @@ const ZhIndexRoute = ZhIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/download': typeof ApiDownloadRoute
   '/api/parse': typeof ApiParseRoute
+  '/de/': typeof DeIndexRoute
+  '/es/': typeof EsIndexRoute
+  '/fr/': typeof FrIndexRoute
   '/ja/': typeof JaIndexRoute
+  '/ko/': typeof KoIndexRoute
+  '/pt/': typeof PtIndexRoute
+  '/ru/': typeof RuIndexRoute
   '/zh/': typeof ZhIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/download': typeof ApiDownloadRoute
   '/api/parse': typeof ApiParseRoute
+  '/de': typeof DeIndexRoute
+  '/es': typeof EsIndexRoute
+  '/fr': typeof FrIndexRoute
   '/ja': typeof JaIndexRoute
+  '/ko': typeof KoIndexRoute
+  '/pt': typeof PtIndexRoute
+  '/ru': typeof RuIndexRoute
   '/zh': typeof ZhIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/download': typeof ApiDownloadRoute
   '/api/parse': typeof ApiParseRoute
+  '/de/': typeof DeIndexRoute
+  '/es/': typeof EsIndexRoute
+  '/fr/': typeof FrIndexRoute
   '/ja/': typeof JaIndexRoute
+  '/ko/': typeof KoIndexRoute
+  '/pt/': typeof PtIndexRoute
+  '/ru/': typeof RuIndexRoute
   '/zh/': typeof ZhIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/api/download'
     | '/api/parse'
+    | '/de/'
+    | '/es/'
+    | '/fr/'
     | '/ja/'
+    | '/ko/'
+    | '/pt/'
+    | '/ru/'
     | '/zh/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/api/download'
     | '/api/parse'
+    | '/de'
+    | '/es'
+    | '/fr'
     | '/ja'
+    | '/ko'
+    | '/pt'
+    | '/ru'
     | '/zh'
   id:
     | '__root__'
     | '/'
-    | '/about'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/api/download'
     | '/api/parse'
+    | '/de/'
+    | '/es/'
+    | '/fr/'
     | '/ja/'
+    | '/ko/'
+    | '/pt/'
+    | '/ru/'
     | '/zh/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiDownloadRoute: typeof ApiDownloadRoute
   ApiParseRoute: typeof ApiParseRoute
+  DeIndexRoute: typeof DeIndexRoute
+  EsIndexRoute: typeof EsIndexRoute
+  FrIndexRoute: typeof FrIndexRoute
   JaIndexRoute: typeof JaIndexRoute
+  KoIndexRoute: typeof KoIndexRoute
+  PtIndexRoute: typeof PtIndexRoute
+  RuIndexRoute: typeof RuIndexRoute
   ZhIndexRoute: typeof ZhIndexRoute
 }
 
@@ -141,13 +206,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/robots.txt': {
@@ -178,11 +236,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiParseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/de/': {
+      id: '/de/'
+      path: '/de'
+      fullPath: '/de/'
+      preLoaderRoute: typeof DeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/es/': {
+      id: '/es/'
+      path: '/es'
+      fullPath: '/es/'
+      preLoaderRoute: typeof EsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fr/': {
+      id: '/fr/'
+      path: '/fr'
+      fullPath: '/fr/'
+      preLoaderRoute: typeof FrIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ja/': {
       id: '/ja/'
       path: '/ja'
       fullPath: '/ja/'
       preLoaderRoute: typeof JaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ko/': {
+      id: '/ko/'
+      path: '/ko'
+      fullPath: '/ko/'
+      preLoaderRoute: typeof KoIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/': {
+      id: '/pt/'
+      path: '/pt'
+      fullPath: '/pt/'
+      preLoaderRoute: typeof PtIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ru/': {
+      id: '/ru/'
+      path: '/ru'
+      fullPath: '/ru/'
+      preLoaderRoute: typeof RuIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/zh/': {
@@ -197,12 +297,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiDownloadRoute: ApiDownloadRoute,
   ApiParseRoute: ApiParseRoute,
+  DeIndexRoute: DeIndexRoute,
+  EsIndexRoute: EsIndexRoute,
+  FrIndexRoute: FrIndexRoute,
   JaIndexRoute: JaIndexRoute,
+  KoIndexRoute: KoIndexRoute,
+  PtIndexRoute: PtIndexRoute,
+  RuIndexRoute: RuIndexRoute,
   ZhIndexRoute: ZhIndexRoute,
 }
 export const routeTree = rootRouteImport

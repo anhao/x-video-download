@@ -1,17 +1,38 @@
 import { createContext, useCallback, useContext, useEffect } from "react";
+import { de } from "#/i18n/de";
 import { en } from "#/i18n/en";
+import { es } from "#/i18n/es";
+import { fr } from "#/i18n/fr";
 import { ja } from "#/i18n/ja";
+import { ko } from "#/i18n/ko";
+import { pt } from "#/i18n/pt";
+import { ru } from "#/i18n/ru";
 import { zh } from "#/i18n/zh";
 
-export type Locale = "en" | "zh" | "ja";
+export type Locale =
+	| "en"
+	| "zh"
+	| "ja"
+	| "es"
+	| "pt"
+	| "ko"
+	| "fr"
+	| "de"
+	| "ru";
 
 export const LOCALES: { code: Locale; label: string; path: string }[] = [
 	{ code: "en", label: "English", path: "/" },
 	{ code: "zh", label: "中文", path: "/zh" },
 	{ code: "ja", label: "日本語", path: "/ja" },
+	{ code: "es", label: "Español", path: "/es" },
+	{ code: "pt", label: "Português", path: "/pt" },
+	{ code: "ko", label: "한국어", path: "/ko" },
+	{ code: "fr", label: "Français", path: "/fr" },
+	{ code: "de", label: "Deutsch", path: "/de" },
+	{ code: "ru", label: "Русский", path: "/ru" },
 ];
 
-const dicts = { en, zh, ja };
+const dicts = { en, zh, ja, es, pt, ko, fr, de, ru };
 
 /** Nested lookup with English fallback so a missing key never renders raw. */
 function lookup(dict: unknown, base: typeof en, key: string): string {
