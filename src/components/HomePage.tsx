@@ -285,30 +285,8 @@ function HomePageBody() {
 					</p>
 				</section>
 
-				<section className="mt-8 space-y-5">
-					{jobs.map((job) => (
-						<div key={job.uid} className="fade-in">
-							{job.state === "loading" && <SkeletonCard />}
-							{job.state === "error" && (
-								<ErrorCard error={job.error ?? "unknown"} />
-							)}
-							{job.state === "done" && job.data && (
-								<ResultCard
-									data={job.data}
-									onPreview={setPreview}
-									onToast={showToast}
-								/>
-							)}
-						</div>
-					))}
-				</section>
-
-				<HowItWorks />
-				<Features />
-				<Faq />
-
 				{history.length > 0 && (
-					<section className="mt-12">
+					<section className="mt-6">
 						<div className="mb-3 flex items-center justify-between">
 							<h2 className="text-sm font-bold text-neutral-300">
 								{t("history.title")}
@@ -353,6 +331,28 @@ function HomePageBody() {
 						</div>
 					</section>
 				)}
+
+				<section className="mt-8 space-y-5">
+					{jobs.map((job) => (
+						<div key={job.uid} className="fade-in">
+							{job.state === "loading" && <SkeletonCard />}
+							{job.state === "error" && (
+								<ErrorCard error={job.error ?? "unknown"} />
+							)}
+							{job.state === "done" && job.data && (
+								<ResultCard
+									data={job.data}
+									onPreview={setPreview}
+									onToast={showToast}
+								/>
+							)}
+						</div>
+					))}
+				</section>
+
+				<HowItWorks />
+				<Features />
+				<Faq />
 			</main>
 
 			<footer className="mt-20 border-t border-line pt-10">
