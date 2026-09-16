@@ -1,0 +1,63 @@
+{
+  "name": "x-video-download",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "generate-routes": "tsr generate",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "biome format",
+    "lint": "biome lint",
+    "check": "biome check",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/react-devtools": "latest",
+    "@tanstack/react-router": "latest",
+    "@tanstack/react-router-devtools": "latest",
+    "@tanstack/react-start": "latest",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.5",
+    "@cloudflare/vite-plugin": "^1.26.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tanstack/devtools-vite": "latest",
+    "@tanstack/router-cli": "^1.167.36",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.0",
+    "wrangler": "^4.70.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "lightningcss",
+      "sharp",
+      "workerd"
+    ]
+  },
+  "description": "Download videos, GIFs and photos from X (Twitter) posts \u2014 up to 4K, no login. TanStack Start on Cloudflare Workers.",
+  "license": "MIT",
+  "keywords": [
+    "twitter",
+    "x",
+    "video-downloader",
+    "cloudflare-workers",
+    "tanstack-start"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/x-video-download.git"
+  }
+}
