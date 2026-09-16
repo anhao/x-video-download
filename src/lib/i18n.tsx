@@ -93,3 +93,9 @@ export function I18nProvider({
 export function useI18n() {
 	return useContext(I18nContext);
 }
+
+/** Full dictionary for the active locale — for structured (array/object) data. */
+export function useDict() {
+	const { locale } = useContext(I18nContext);
+	return dicts[locale];
+}

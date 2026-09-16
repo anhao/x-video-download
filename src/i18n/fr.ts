@@ -54,8 +54,85 @@ export const fr: typeof en = {
 			"Outil gratuit pour télécharger vidéos, GIFs et photos de posts X (Twitter). Toutes les qualités jusqu’à 4K, sans connexion ni clé API.",
 	},
 	footer: {
+		tagline:
+			"Téléchargeur de médias X (Twitter) rapide, gratuit et open source.",
+		product: "Langues",
+		resources: "Ressources",
+		followX: "Suivre sur X",
+		source: "Code source",
 		disclaimer:
 			"Uniquement pour la sauvegarde personnelle et l’apprentissage. Respectez le droit d’auteur des créateurs : ne redistribuez pas sans autorisation.",
 		license: "Open source sous MIT",
+	},
+	sections: {
+		howTitle: "Comment ça marche",
+		steps: [
+			{
+				title: "Copiez le lien",
+				desc: "Dans l’app X ou le navigateur, appuyez sur Partager → Copier le lien.",
+			},
+			{
+				title: "Collez et analysez",
+				desc: "Collez le lien ci-dessus et appuyez sur Analyser ; chaque qualité est résolue instantanément.",
+			},
+			{
+				title: "Téléchargez",
+				desc: "Choisissez une résolution et enregistrez le MP4 — jusqu’en 4K, sans filigrane.",
+			},
+		],
+		featuresTitle: "Pourquoi ce téléchargeur",
+		features: [
+			{
+				title: "Sans connexion ni clé API",
+				desc: "Lit le flux public de X pour les posts publics — rien à configurer.",
+			},
+			{
+				title: "Jusqu’en 4K",
+				desc: "Toutes les variantes MP4 du post, de 240p à 4K, avec tailles de fichier.",
+			},
+			{
+				title: "Liens en lot",
+				desc: "Collez plusieurs liens à la fois — ou collez n’importe où sur la page.",
+			},
+			{
+				title: "Vidéos, GIFs et photos",
+				desc: "Les GIF sont enregistrés en MP4 et les photos téléchargées en résolution originale.",
+			},
+			{
+				title: "Proxy edge rapide",
+				desc: "Les fichiers transitent par Cloudflare Workers, sans goulot d’étranglement.",
+			},
+			{
+				title: "9 langues",
+				desc: "English, 中文, 日本語, Español et plus — pages propres, zéro pub.",
+			},
+		],
+		faqTitle: "FAQ",
+		faqs: [
+			{
+				q: "Comment télécharger une vidéo X (Twitter) ?",
+				a: "Copiez le lien du post, collez-le dans la barre de recherche et appuyez sur Analyser. Choisissez une qualité et le MP4 s’enregistre directement sur votre appareil.",
+			},
+			{
+				q: "Faut-il un compte ou une clé API ?",
+				a: "Non. L’outil lit le flux public de X pour les posts publics — aucune inscription nécessaire.",
+			},
+			{
+				q: "Quelles qualités sont disponibles ?",
+				a: "Toutes les qualités du post, généralement de 240p à 1080p, jusqu’à 4K pour les envois haute résolution. Une playlist HLS du flux original est aussi proposée.",
+			},
+			{
+				q: "Y a-t-il des filigranes ou des limites ?",
+				a: "Les téléchargements sont les fichiers originaux : sans filigrane, sans réencodage, sans file d’attente. Usage personnel uniquement.",
+			},
+			{
+				q: "Peut-on télécharger des GIFs et des photos ?",
+				a: "Oui — les GIF sont enregistrés en MP4 et les photos téléchargées en résolution originale.",
+			},
+			{
+				q: "Pourquoi un lien échoue-t-il ?",
+				a: "Le post est peut-être supprimé, privé, restreint par âge ou bloqué par région. Seuls les posts publics fonctionnent — le message d’erreur indique la raison exacte.",
+			},
+		],
 	},
 };

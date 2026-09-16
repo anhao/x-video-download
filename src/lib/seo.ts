@@ -117,6 +117,19 @@ export function jsonLd(locale: Locale): string {
 	});
 }
 
+/** FAQPage structured data for rich results (one per locale). */
+export function faqJsonLd(locale: Locale): string {
+	return JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		mainEntity: DICTS[locale].sections.faqs.map((f) => ({
+			"@type": "Question",
+			name: f.q,
+			acceptedAnswer: { "@type": "Answer", text: f.a },
+		})),
+	});
+}
+
 export function sitemapXml(origin: string): string {
 	const entries = ALL_LOCALES.map((l) => {
 		const alternates = [
